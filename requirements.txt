@@ -1,0 +1,3 @@
+viktor==14.7.0
+plotly
+anastruct
