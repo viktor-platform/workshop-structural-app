@@ -146,25 +146,15 @@ class Controller(ViktorController):
 
     @ImageView("Shear Stress", duration_guess=1)
     def create_shear(self, params, **kwargs):
-        se = self.make_analysis(params)
-        se.q_load(q=-params.forces.magnitude, element_id=params.forces.element, direction='element')
-        se.solve()
-        fig = se.show_shear_force(show=False)
-        svg_data = StringIO()
-        fig.savefig(svg_data, format='svg')
-        plt.close()
-        return ImageResult(svg_data)
+        #add your code here:
+
+        return ImageResult()
     
     @ImageView("Displacement", duration_guess=1)
     def create_displacement(self, params, **kwargs):
-        se = self.make_analysis(params)
-        se.q_load(q=-params.forces.magnitude, element_id=params.forces.element, direction='element')
-        se.solve()
-        fig = se.show_displacement(show=False)
-        svg_data = StringIO()
-        fig.savefig(svg_data, format='svg')
-        plt.close()
-        return ImageResult(svg_data)
+        #Add your code here:
+
+        return ImageResult()
 
     @PDFView("Report", duration_guess=10)
     def create_report(self, params, **kwargs):
@@ -174,7 +164,7 @@ class Controller(ViktorController):
 
         components = []
 
-        fig = se.show_structure(show=False)
+        fig = se.show_structure(show=False, annotations=True)
         structure_image = BytesIO()
         fig.savefig(structure_image, format='png')
 
