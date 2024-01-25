@@ -137,7 +137,7 @@ class Controller(ViktorController):
         se = self.make_analysis(params)
         se.q_load(q=-params.forces.magnitude, element_id=params.forces.element, direction='element')
         se.solve()
-        fig = se.show_bending_moment(show=False, annotations=True)
+        fig = se.show_bending_moment(show=False)
         svg_data = StringIO()
         fig.savefig(svg_data, format='svg')
         plt.close()
@@ -149,7 +149,7 @@ class Controller(ViktorController):
         se = self.make_analysis(params)
         se.q_load(q=-params.forces.magnitude, element_id=params.forces.element, direction='element')
         se.solve()
-        fig = se.show_shear_force(show=False, annotations=True)
+        fig = se.show_shear_force(show=False)
         svg_data = StringIO()
         fig.savefig(svg_data, format='svg')
         plt.close()
@@ -160,7 +160,7 @@ class Controller(ViktorController):
         se = self.make_analysis(params)
         se.q_load(q=-params.forces.magnitude, element_id=params.forces.element, direction='element')
         se.solve()
-        fig = se.show_displacement(show=False, annotations=True)
+        fig = se.show_displacement(show=False)
         svg_data = StringIO()
         fig.savefig(svg_data, format='svg')
         plt.close()
@@ -174,7 +174,7 @@ class Controller(ViktorController):
 
         components = []
 
-        fig = se.show_structure(show=False, annotations=True)
+        fig = se.show_structure(show=False)
         structure_image = BytesIO()
         fig.savefig(structure_image, format='png')
 
